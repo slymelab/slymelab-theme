@@ -66,37 +66,3 @@ const handleCopy = async () => {
   }
 }
 </script>
-
-<style>
-.shiki-container pre {
-  background-color: transparent !important;
-  margin: 0;
-  padding: 0;
-}
-
-html.dark .shiki-container .shiki,
-html.dark .shiki-container .shiki span {
-  color: var(--shiki-dark) !important;
-  background-color: transparent !important;
-  font-style: var(--shiki-dark-font-style) !important;
-  font-weight: var(--shiki-dark-font-weight) !important;
-  text-decoration: var(--shiki-dark-text-decoration) !important;
-}
-
-.shiki-container pre::-webkit-scrollbar {
-  height: 8px;
-}
-
-.shiki-container pre::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.shiki-container pre::-webkit-scrollbar-thumb {
-  background-color: rgba(156, 163, 175, 0.5);
-  border-radius: 4px;
-}
-
-html.dark .shiki-container pre::-webkit-scrollbar-thumb {
-  background-color: rgba(75, 85, 99, 0.5);
-}
-</style>

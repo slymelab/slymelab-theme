@@ -148,10 +148,7 @@
 
   --glass-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.15) 100%);
 
-  @apply bg-white/10 dark:bg-white/[0.03];
-  @apply backdrop-blur-[40px] backdrop-saturate-[180%];
-  @apply border border-black/[0.08] dark:border-white/[0.06];
-  @apply relative overflow-hidden;
+  @apply bg-white/10 backdrop-blur-[40px] backdrop-saturate-[180%] border border-black/[0.08] relative overflow-hidden;
 
   transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: var(--glass-shadow);
@@ -165,16 +162,302 @@
   }
 
   @variant dark {
+    @apply bg-white/[0.03] border-white/[0.06];
     --glass-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.05);
     --glass-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
   }
 
   &.slyme-glass-hover:hover {
-    @apply bg-white/15 dark:bg-white/[0.06];
-    @apply border-black/[0.12] dark:border-white/[0.15];
+    @apply bg-white/15 border-black/[0.12];
     --glass-shadow:
       0 0 1px rgba(0, 0, 0, 0.06),
       0 20px 50px rgba(0, 0, 0, 0.1),
       inset 0 1px 1px rgba(255, 255, 255, 0.6);
+      
+    @variant dark {
+      @apply bg-white/[0.06] border-white/[0.15];
+    }
   }
+}
+
+/**
+ * Component: Slyme Badge
+ * -------------------------------------------------------------------------- */
+@utility slyme-badge {
+  @apply inline-flex items-center justify-center rounded-md border font-mono font-bold transition-colors duration-200;
+}
+@utility slyme-badge-sm { @apply text-[10px] px-1 py-0; }
+@utility slyme-badge-md { @apply text-[11px] px-1.5 py-0.5; }
+@utility slyme-badge-lg { @apply text-[12px] px-1.5 py-1; }
+
+@utility slyme-badge-default {
+  @apply bg-gray-200/50 border-gray-300/30 text-gray-600;
+  @variant dark { @apply bg-white/10 border-white/10 text-gray-400; }
+}
+@utility slyme-badge-info {
+  @apply bg-blue-100/60 border-blue-300/40 text-blue-700;
+  @variant dark { @apply bg-blue-500/10 border-blue-500/20 text-blue-400; }
+}
+@utility slyme-badge-success {
+  @apply bg-emerald-100/60 border-emerald-300/40 text-emerald-700;
+  @variant dark { @apply bg-emerald-500/10 border-emerald-500/20 text-emerald-400; }
+}
+@utility slyme-badge-warning {
+  @apply bg-amber-100/60 border-amber-300/40 text-amber-700;
+  @variant dark { @apply bg-amber-500/10 border-amber-500/20 text-amber-400; }
+}
+@utility slyme-badge-error {
+  @apply bg-rose-100/60 border-rose-300/40 text-rose-700;
+  @variant dark { @apply bg-rose-500/20 border-rose-500/40 text-rose-400; }
+}
+
+/**
+ * Component: Slyme Button Link
+ * -------------------------------------------------------------------------- */
+@utility slyme-button-link {
+  @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-[0.4rem] font-mono text-sm transition-all duration-200 cursor-pointer w-full outline-none;
+  @variant sm { @apply w-auto; }
+  &:focus { @apply ring-2 ring-offset-2; }
+  @variant dark {
+    &:focus { @apply ring-offset-gray-900; }
+  }
+}
+@utility slyme-button-link-solid {
+  @apply bg-black text-white border border-transparent;
+  &:hover { @apply bg-gray-800; }
+  &:focus { @apply ring-black; }
+  @variant dark {
+    @apply bg-white text-black;
+    &:hover { @apply bg-gray-200; }
+    &:focus { @apply ring-white; }
+  }
+}
+@utility slyme-button-link-outline {
+  @apply bg-transparent border border-black text-black;
+  &:hover { @apply bg-black text-white; }
+  &:focus { @apply ring-black; }
+  @variant dark {
+    @apply border-white text-white;
+    &:hover { @apply bg-white text-black; }
+    &:focus { @apply ring-white; }
+  }
+}
+
+/**
+ * Component: Slyme Card
+ * -------------------------------------------------------------------------- */
+@utility slyme-card-container-md { @apply p-8 rounded-[1.5rem]; }
+@utility slyme-card-layout-md {
+  @apply gap-8;
+  @variant md { @apply gap-10; }
+}
+@utility slyme-card-header-md { @apply mb-6; }
+@utility slyme-card-title-md { @apply text-xl tracking-tight mb-4; }
+@utility slyme-card-desc-md { @apply text-sm; }
+@utility slyme-card-footer-md { @apply mt-6; }
+
+@utility slyme-card-container-lg {
+  @apply p-10 rounded-[2rem];
+  @variant lg { @apply p-16; }
+}
+@utility slyme-card-layout-lg {
+  @apply gap-10;
+  @variant lg { @apply gap-16; }
+}
+@utility slyme-card-header-lg {
+  @apply mb-6;
+  @variant lg { @apply mb-8; }
+}
+@utility slyme-card-title-lg { @apply text-2xl tracking-tighter mb-6; }
+@utility slyme-card-desc-lg { @apply text-base; }
+@utility slyme-card-footer-lg { @apply mt-8; }
+
+/**
+ * Component: Slyme Icon
+ * -------------------------------------------------------------------------- */
+@utility slyme-icon {
+  @apply flex items-center justify-center font-mono font-bold rounded-lg transition-all duration-300 shadow-sm;
+}
+@utility slyme-icon-xs { @apply w-6 h-6 text-xs; }
+@utility slyme-icon-sm { @apply w-7 h-7 text-sm; }
+@utility slyme-icon-md { @apply w-9 h-9 text-base; }
+@utility slyme-icon-lg { @apply w-12 h-12 text-xl; }
+@utility slyme-icon-xl { @apply w-16 h-16 text-3xl; }
+
+@utility slyme-icon-indigo {
+  @apply bg-indigo-600 text-white shadow-indigo-500/20;
+  @variant dark { @apply bg-indigo-500; }
+}
+@utility slyme-icon-emerald {
+  @apply bg-emerald-600 text-white shadow-emerald-500/20;
+  @variant dark { @apply bg-emerald-500; }
+}
+@utility slyme-icon-amber {
+  @apply bg-amber-500 text-black shadow-amber-500/20;
+  @variant dark { @apply bg-amber-400; }
+}
+@utility slyme-icon-rose {
+  @apply bg-rose-600 text-white shadow-rose-500/20;
+  @variant dark { @apply bg-rose-500; }
+}
+@utility slyme-icon-monochrome {
+  @apply bg-gray-900 text-white shadow-gray-500/10;
+  @variant dark { @apply bg-white text-gray-900; }
+}
+
+/**
+ * Component: Slyme Link
+ * -------------------------------------------------------------------------- */
+@utility slyme-link { @apply inline-flex items-center font-mono font-medium transition-all duration-300 cursor-pointer; }
+@utility slyme-link-sm { @apply text-sm; }
+@utility slyme-link-md { @apply text-base; }
+@utility slyme-link-lg { @apply text-lg gap-2; }
+
+@utility slyme-link-text-indigo {
+  @apply text-indigo-600;
+  &:hover { @apply text-indigo-700; }
+  @variant dark {
+    @apply text-indigo-400;
+    &:hover { @apply text-indigo-300; }
+  }
+}
+@utility slyme-link-decoration-indigo {
+  @apply decoration-indigo-500/30;
+  &:hover { @apply decoration-indigo-600; }
+  @variant dark {
+    @apply decoration-indigo-400/30;
+    &:hover { @apply decoration-indigo-400; }
+  }
+}
+
+@utility slyme-link-text-emerald {
+  @apply text-emerald-600;
+  &:hover { @apply text-emerald-700; }
+  @variant dark {
+    @apply text-emerald-400;
+    &:hover { @apply text-emerald-300; }
+  }
+}
+@utility slyme-link-decoration-emerald {
+  @apply decoration-emerald-500/30;
+  &:hover { @apply decoration-emerald-600; }
+  @variant dark {
+    @apply decoration-emerald-400/30;
+    &:hover { @apply decoration-emerald-400; }
+  }
+}
+
+@utility slyme-link-text-amber {
+  @apply text-amber-600;
+  &:hover { @apply text-amber-700; }
+  @variant dark {
+    @apply text-amber-400;
+    &:hover { @apply text-amber-300; }
+  }
+}
+@utility slyme-link-decoration-amber {
+  @apply decoration-amber-500/30;
+  &:hover { @apply decoration-amber-600; }
+  @variant dark {
+    @apply decoration-amber-400/30;
+    &:hover { @apply decoration-amber-400; }
+  }
+}
+
+@utility slyme-link-text-rose {
+  @apply text-rose-600;
+  &:hover { @apply text-rose-700; }
+  @variant dark {
+    @apply text-rose-400;
+    &:hover { @apply text-rose-300; }
+  }
+}
+@utility slyme-link-decoration-rose {
+  @apply decoration-rose-500/30;
+  &:hover { @apply decoration-rose-600; }
+  @variant dark {
+    @apply decoration-rose-400/30;
+    &:hover { @apply decoration-rose-400; }
+  }
+}
+
+@utility slyme-link-text-monochrome {
+  @apply text-gray-900;
+  &:hover { @apply text-gray-600; }
+  @variant dark {
+    @apply text-gray-50;
+    &:hover { @apply text-gray-300; }
+  }
+}
+@utility slyme-link-decoration-monochrome {
+  @apply decoration-gray-500/30;
+  &:hover { @apply decoration-gray-900; }
+  @variant dark {
+    @apply decoration-gray-400/30;
+    &:hover { @apply decoration-gray-100; }
+  }
+}
+
+@utility slyme-link-text-muted {
+  @apply text-gray-500;
+  &:hover { @apply text-gray-900; }
+  @variant dark {
+    @apply text-gray-400;
+    &:hover { @apply text-white; }
+  }
+}
+@utility slyme-link-decoration-muted {
+  @apply decoration-gray-400/30;
+  &:hover { @apply decoration-gray-600; }
+  @variant dark {
+    @apply decoration-gray-600/30;
+    &:hover { @apply decoration-gray-300; }
+  }
+}
+
+/**
+ * Component: Slyme Status
+ * -------------------------------------------------------------------------- */
+@utility slyme-status { @apply inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full border font-mono text-xs font-bold transition-all duration-300; }
+@utility slyme-status-dot-ping { @apply animate-ping absolute inline-flex h-full w-full rounded-full opacity-75; }
+@utility slyme-status-dot-base { @apply relative inline-flex rounded-full h-2 w-2; }
+
+@utility slyme-status-container-success {
+  @apply bg-emerald-500/5 border-emerald-500/30;
+  @variant dark { @apply border-emerald-500/10; }
+}
+@utility slyme-status-dot-success { @apply bg-emerald-500; }
+@utility slyme-status-text-success {
+  @apply text-emerald-600;
+  @variant dark { @apply text-emerald-400; }
+}
+
+@utility slyme-status-container-info {
+  @apply bg-blue-500/5 border-blue-500/20;
+  @variant dark { @apply border-blue-500/10; }
+}
+@utility slyme-status-dot-info { @apply bg-blue-500; }
+@utility slyme-status-text-info {
+  @apply text-blue-600;
+  @variant dark { @apply text-blue-400; }
+}
+
+@utility slyme-status-container-warning {
+  @apply bg-amber-500/5 border-amber-500/20;
+  @variant dark { @apply border-amber-500/10; }
+}
+@utility slyme-status-dot-warning { @apply bg-amber-500; }
+@utility slyme-status-text-warning {
+  @apply text-amber-600;
+  @variant dark { @apply text-amber-400; }
+}
+
+@utility slyme-status-container-error {
+  @apply bg-rose-500/8 border-rose-500/25;
+  @variant dark { @apply border-rose-500/30; }
+}
+@utility slyme-status-dot-error { @apply bg-rose-500; }
+@utility slyme-status-text-error {
+  @apply text-rose-600;
+  @variant dark { @apply text-rose-400; }
 }

@@ -8,6 +8,10 @@ import SlymeCodeBlock from './components/SlymeCodeBlock.vue'
 import SlymeFeature from './components/SlymeFeature.vue'
 import SlymeBadge from './components/SlymeBadge.vue'
 import SlymeStatus from './components/SlymeStatus.vue'
+import SlymeIcon from './components/SlymeIcon.vue'
+import SlymeFooter from './components/SlymeFooter.vue'
+import SlymeFooterColumn from './components/SlymeFooterColumn.vue'
+import SlymeLink from './components/SlymeLink.vue'
 
 export default {
   extends: DefaultTheme,
@@ -24,4 +28,8 @@ export {
   SlymeFeature,
   SlymeBadge,
   SlymeStatus,
+  SlymeIcon,
+  SlymeFooter,
+  SlymeFooterColumn,
+  SlymeLink,
 }

@@ -18,7 +18,7 @@
         </div>
 
         <h3 v-if="$slots.title"
-          :class="['font-mono font-semibold text-gray-900 dark:text-gray-100', currentSize.title]">
+          :class="['font-mono font-bold text-gray-900 dark:text-gray-100', currentSize.title]">
           <slot name="title"></slot>
         </h3>
 
@@ -57,20 +57,20 @@ const props = defineProps({
 
 const sizes = {
   md: {
-    container: 'p-8 rounded-[1.5rem]',
-    layout: 'gap-8 md:gap-10',
-    header: 'mb-6',
-    title: 'text-2xl md:text-3xl tracking-tight mb-4',
-    desc: 'text-sm',
-    footer: 'mt-10'
+    container: 'slyme-card-container-md',
+    layout: 'slyme-card-layout-md',
+    header: 'slyme-card-header-md',
+    title: 'slyme-card-title-md',
+    desc: 'slyme-card-desc-md',
+    footer: 'slyme-card-footer-md'
   },
   lg: {
-    container: 'p-10 lg:p-16 rounded-[2rem]',
-    layout: 'gap-10 lg:gap-16',
-    header: 'mb-6 lg:mb-8',
-    title: 'text-3xl md:text-4xl tracking-tighter mb-6',
-    desc: 'text-base',
-    footer: 'mt-8 lg:mt-12'
+    container: 'slyme-card-container-lg',
+    layout: 'slyme-card-layout-lg',
+    header: 'slyme-card-header-lg',
+    title: 'slyme-card-title-lg',
+    desc: 'slyme-card-desc-lg',
+    footer: 'slyme-card-footer-lg'
   }
 }
 

@@ -1,7 +1,7 @@
 <template>
   <div 
     :class="[
-      'inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full border font-mono text-xs font-bold transition-all duration-300',
+      'slyme-status',
       statusConfig.container
     ]"
   >
@@ -9,13 +9,13 @@
       <span 
         v-if="animate"
         :class="[
-          'animate-ping absolute inline-flex h-full w-full rounded-full opacity-75',
+          'slyme-status-dot-ping',
           statusConfig.dot
         ]"
       ></span>
       <span 
         :class="[
-          'relative inline-flex rounded-full h-2 w-2',
+          'slyme-status-dot-base',
           statusConfig.dot
         ]"
       ></span>
@@ -44,27 +44,27 @@ const props = defineProps({
 const statusMap = {
   success: {
     label: 'Systems Operational',
-    container: 'bg-emerald-500/5 border-emerald-500/30 dark:border-emerald-500/10',
-    dot: 'bg-emerald-500',
-    text: 'text-emerald-600 dark:text-emerald-400'
+    container: 'slyme-status-container-success',
+    dot: 'slyme-status-dot-success',
+    text: 'slyme-status-text-success'
   },
   info: {
     label: 'System Processing',
-    container: 'bg-blue-500/5 border-blue-500/20 dark:border-blue-500/10',
-    dot: 'bg-blue-500',
-    text: 'text-blue-600 dark:text-blue-400'
+    container: 'slyme-status-container-info',
+    dot: 'slyme-status-dot-info',
+    text: 'slyme-status-text-info'
   },
   warning: {
     label: 'Under Maintenance',
-    container: 'bg-amber-500/5 border-amber-500/20 dark:border-amber-500/10',
-    dot: 'bg-amber-500',
-    text: 'text-amber-600 dark:text-amber-400'
+    container: 'slyme-status-container-warning',
+    dot: 'slyme-status-dot-warning',
+    text: 'slyme-status-text-warning'
   },
   error: {
     label: 'Connection Interrupted',
-    container: 'bg-rose-500/8 border-rose-500/25 dark:border-rose-500/30',
-    dot: 'bg-rose-500',
-    text: 'text-rose-600 dark:text-rose-400'
+    container: 'slyme-status-container-error',
+    dot: 'slyme-status-dot-error',
+    text: 'slyme-status-text-error'
   }
 }
 
