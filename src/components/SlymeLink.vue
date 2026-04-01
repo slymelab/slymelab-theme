@@ -7,7 +7,7 @@
       'slyme-link',
       sizeConfig,
       colorConfig.text,
-      { 'underline underline-offset-4 decoration-2': underline },
+      { 'underline underline-offset-6 decoration-2': underline },
       underline ? colorConfig.decoration : ''
     ]"
   >
@@ -17,12 +17,6 @@
       <slot></slot>
     </span>
 
-    <span 
-      v-if="withArrow" 
-      class="ml-1.5 transition-transform duration-300 group-hover:translate-x-1"
-    >
-      -&gt;
-    </span>
   </component>
 </template>
 
@@ -35,7 +29,6 @@ const props = defineProps({
   theme: { type: String, default: 'monochrome' },
   size: { type: String, default: 'md' },
   underline: { type: Boolean, default: false },
-  withArrow: { type: Boolean, default: false }
 })
 
 const sizeMap = {
