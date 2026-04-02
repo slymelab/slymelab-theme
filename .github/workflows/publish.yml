@@ -6,18 +6,12 @@ on:
       - 'v*'
 
 jobs:
-  build-and-publish:
+  publish:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Verify tag is on main branch
-        run: |
-          git branch --contains ${{ github.ref_name }} | grep -E '(^|\s)main$' || exit 1
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
