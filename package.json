@@ -10,5 +10,11 @@
   "files": [
     "src"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "peerDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "tailwindcss": "^4.0.0",
+    "vitepress": "^1.0.0",
+    "vue": "^3.0.0"
+  }
 }
